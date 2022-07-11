@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        (applicationContext as App).appComponent.inject(this)
+       (applicationContext as App).appComponent.inject(this)
         vm = ViewModelProvider(this, vmFactory).get(MainViewModel::class.java)
 
         Log.e("AAA", "Activity created")
@@ -32,6 +32,7 @@ class MainActivity : AppCompatActivity() {
         val dataEditText = findViewById<EditText>(R.id.dataEditText)
         val sendButton = findViewById<Button>(R.id.sendButton)
         val receiveButton = findViewById<Button>(R.id.receiveButton)
+
 
         vm.resultLive.observe(this, {text ->
             dataTextView.text = text
